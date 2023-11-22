@@ -35,16 +35,15 @@ public class ArticleSerice {
         }
         return false;
     }
-    public ArrayList<Model> Publish(String id){
+    public boolean Publish(String id){
 
         for (int i = 0; i <mod.size() ; i++) {
             if (mod.get(i).getId().equals(id)&& !mod.get(i).isPublished()) {
-
-
-                return false;
+            mod.get(i).setPublished(true);
+            return true;
             }
         }
-        return true;
+        return false;
     }
 
     public ArrayList<Model> search( String Category ) {
@@ -53,8 +52,7 @@ public class ArticleSerice {
         ) {
             if (t.getCategory().equals(Category)) {
               d.add(t);
-                return d;
             }
         }
-return mod;    }
+return d;    }
 }
